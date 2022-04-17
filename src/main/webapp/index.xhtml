@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Lab 8</title>
+    <style type="text/css">
+        .error {
+            color: red;
+        }
+    </style>
+</h:head>
+<h:body>
+    <h:form>
+        <h:messages styleClass="error"/>
+        <h:outputLabel for="string1">
+            <h:outputText value="Enter first string "/>
+        </h:outputLabel>
+        <h:inputText id="string1" label="First string" value="#{computer.str1}" required="true">
+            <f:validateLength minimum="5" maximum="30"/>
+        </h:inputText>
+        <br/>
+        <h:outputLabel for="string2">
+            <h:outputText value="Enter second string "/>
+        </h:outputLabel>
+        <h:inputText id="string2" label="Second string" value="${computer.str2}">
+            <f:validateLength minimum="5" maximum="30"/>
+        </h:inputText>
+        <br/>
+        <h:commandButton value="Compute strings" action="#{computer.compute()}"/>
+    </h:form>
+</h:body>
+</html>
